@@ -64,7 +64,7 @@ class users_controller extends base_controller {
     # Search the db for this email and password
     # Retrieve the token if it's available
     $q = "SELECT token 
-        FROM users 
+        FROM Users 
         WHERE email = '".$_POST['email']."' 
         AND password = '".$_POST['password']."'";
 
