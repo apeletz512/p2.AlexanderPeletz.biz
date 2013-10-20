@@ -26,6 +26,9 @@ class users_controller extends base_controller {
     # Dump out the results of POST to see what the form submitted
     // print_r($_POST);
 
+    $_POST['created'] = Time::now();
+    $_POST['modified'] = Time::now();
+
     # Insert this user into the database
     $user_id = DB::instance(DB_NAME)->insert('Users', $_POST);
 
