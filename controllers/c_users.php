@@ -38,7 +38,7 @@ class users_controller extends base_controller {
 
     # For now, just confirm they've signed up - 
     # You should eventually make a proper View for this
-    echo 'You're signed up';     
+    echo "You\'re signed up";     
     }
 
     public function login() {
@@ -49,17 +49,6 @@ class users_controller extends base_controller {
         echo "This is the logout page";
     }
 
-    /*
-    public function profile($user_name = NULL) {
-
-        if($user_name == NULL) {
-            echo "No user specified";
-        }
-        else {
-            echo "This is the profile for ".$user_name;
-        }
-    }
-    */
 
     public function profile($user_name = NULL) {
 
