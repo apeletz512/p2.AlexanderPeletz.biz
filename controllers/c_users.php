@@ -43,7 +43,7 @@ public function profile($user_name == NULL) {
     */
     $this->template->content = View::instance('v_users_profile');
 
-    # $title is another variable used in _v_template to set the <title> of the page
+    /* $title is another variable used in _v_template to set the <title> of the page
     $this->template->title = "Profile";
 
     # Pass information to the view fragment
