@@ -104,39 +104,20 @@ class users_controller extends base_controller {
 
     public function profile($user_name = NULL) {
 
-    # Instantiate a User object
-            $this->userObj = new User();
-
-        # Authenticate / load user
-            $this->user = $this->userObj->authenticate();                   
-        # Set up templates
-            $this->template       = View::instance('_v_template');
-            $this->email_template = View::instance('_v_email');         
-
-        # Set a global variable called $user which is accessible to all the views
-        # Set it to be $this->user
-            $this->template->set_global('user', $this->user);
 
 
     # If user is blank, they're not logged in; redirect them to the login page
-    /*
-    
-
     if(!$this->user) {
         Router::redirect("/users/login");
     }
-    */
-    echo "testing";
-    $user = $this->user
-    var_dump($user);
+
     # If they weren't redirected away, continue:
-    /*
+ 
     $this->template->content = View::instance('v_users_profile');
     $this->template->title = "Profile";
     $this->template->content->user_name = $user_name;
 
     echo $this->template; 
-    */
     }   
 
 } # end of the class
