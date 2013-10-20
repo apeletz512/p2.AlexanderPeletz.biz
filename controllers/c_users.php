@@ -38,7 +38,9 @@ class users_controller extends base_controller {
 
     echo "testing";
 
-    $this->template->content = "some stuff";
+    $this->template->content = "some text";
+
+    echo $this->template;
 
     }   
 
