@@ -37,7 +37,7 @@ class users_controller extends base_controller {
 public function profile($user_name == NULL) {
 
     if(isset($this->template)) {
-        echo "template found!;"
+        echo "template found!";
     }
     /*
     If you look at _v_template you'll see it prints a $content variable in the <body>
