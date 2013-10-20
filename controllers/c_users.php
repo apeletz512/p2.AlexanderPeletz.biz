@@ -34,7 +34,7 @@ class users_controller extends base_controller {
     }
     */
 
-    public function profile() {
+    public function profile($user_name = NULL) {
 
     echo "testing";
 
