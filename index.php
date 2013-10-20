@@ -34,10 +34,4 @@
 	require CORE_PATH."environment-details.php";
 
 
-public function index()
-	{
-		echo Time::now();
-	}
-index();
-
 ?>
