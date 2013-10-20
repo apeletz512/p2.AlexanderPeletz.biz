@@ -49,7 +49,9 @@ class users_controller extends base_controller {
     }
 
     $this->template->content = View::instance('v_users_profile');
-    $this->template->title = "some title";
+    $this->template->title = "Profile";
+    $this->template->content->user_name = $user_name;
+
     echo $this->template; 
 
     }   
