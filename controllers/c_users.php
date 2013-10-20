@@ -38,9 +38,19 @@ class users_controller extends base_controller {
 
     echo "testing";
 
+    if(isset($this->template))
+    {
+        echo "template found";
+    }
+    
+    else
+    {
+        echo "no template found";
+    }
+
     $this->template->content = "some text";
 
-    echo $this->template;
+    echo $this->template; 
 
     }   
 
