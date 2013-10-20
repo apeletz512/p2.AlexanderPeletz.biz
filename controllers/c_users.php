@@ -105,10 +105,11 @@ class users_controller extends base_controller {
     public function profile($user_name = NULL) {
 
     # If user is blank, they're not logged in; redirect them to the login page
+    /*
     if(!$this->user) {
         Router::redirect("/users/login");
     }
-
+    */
     echo "this->user: ".$this->user;
     echo "user: ".$user;
     echo "user_name".$user_name;
