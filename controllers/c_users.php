@@ -37,8 +37,7 @@ class users_controller extends base_controller {
     $user_id = DB::instance(DB_NAME)->insert("Users", $_POST);
 
     # For now, just confirm they've signed up - 
-    # You should eventually make a proper View for this
-    echo "You're signed up";     
+    # You should eventually make a proper View for this    
     }
 
 
@@ -88,10 +87,10 @@ class users_controller extends base_controller {
         param 3 = when to expire
         param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
         */
-        setcookie('token', $token, strtotime('+1 year'), '/');
+        setcookie("token", $token, strtotime('+1 year'), '/');
 
         # Send them to the main page - or whever you want them to go
-        Router::redirect('/');
+        #Router::redirect("/");
 
         }
 
