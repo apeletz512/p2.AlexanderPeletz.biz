@@ -112,7 +112,7 @@ class users_controller extends base_controller {
     */
     echo "testing";
     echo "user: $user_name";
-    echo "this->user: $this->user";
+    echo "thisuser: $this->user";
 
     # If they weren't redirected away, continue:
     /*
