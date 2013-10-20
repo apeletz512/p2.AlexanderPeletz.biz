@@ -23,18 +23,22 @@ class users_controller extends base_controller {
 
     public function p_signup() {
 
-    # Dump out the results of POST to see what the form submitted
-    // print_r($_POST);
-
-    $_POST['created'] = Time::now();
+    # More data we want stored with the user
+    $_POST['created']  = Time::now();
     $_POST['modified'] = Time::now();
 
-    # Insert this user into the database
-    $user_id = DB::instance(DB_NAME)->insert('Users', $_POST);
+    # Encrypt the password  
+    $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
+
+    # Create an encrypted token via their email address and a random string
+    $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
+
+    # Insert this user into the database 
+    $user_id = DB::instance(DB_NAME)->insert("Users", $_POST);
 
     # For now, just confirm they've signed up - 
     # You should eventually make a proper View for this
-    echo 'You\'re signed up';      
+    echo 'You're signed up';     
     }
 
     public function login() {
