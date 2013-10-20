@@ -49,7 +49,7 @@ class users_controller extends base_controller {
     }
 
     $this->template->content = "some text";
-
+    $this->template->title = "some title";
     echo $this->template; 
 
     }   
