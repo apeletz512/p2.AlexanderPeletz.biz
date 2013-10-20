@@ -48,7 +48,7 @@ class users_controller extends base_controller {
         echo "no template found";
     }
 
-    $this->template->content = "some text";
+    $this->template->content = View::instance('v_users_profile');
     $this->template->title = "some title";
     echo $this->template; 
 
