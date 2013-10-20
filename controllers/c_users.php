@@ -126,10 +126,7 @@ class users_controller extends base_controller {
         Router::redirect("/users/login");
     }
     */
-    echo "testing";
-    echo "username: $user_name";
-    echo "thisuser: $this->user";
-    echo "user: $user";
+    echo "username: $user_name thisuser: $this->user user: $user";
     # If they weren't redirected away, continue:
     /*
     $this->template->content = View::instance('v_users_profile');
