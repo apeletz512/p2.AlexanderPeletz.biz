@@ -106,7 +106,7 @@ class users_controller extends base_controller {
 
     # If user is blank, they're not logged in; redirect them to the login page
     if(!$this->user) {
-        Router::redirect('/users/login');
+        Router::redirect("/users/login");
     }
 
     echo $this->user;
