@@ -91,12 +91,7 @@ class users_controller extends base_controller {
         setcookie('token', $token, strtotime('+1 year'), '/');
 
         # Send them to the main page - or whever you want them to go
-        echo "$token";
-        echo "you're logged in!<br>";
-        echo '<pre>';
-        print_r($_COOKIE);
-        echo '</pre>';
-        #Router::redirect("/");
+        Router::redirect('/');
 
         }
 
