@@ -38,6 +38,8 @@ class users_controller extends base_controller {
 
     echo "testing";
 
+    echo "$this->template";
+
     }   
 
 } # end of the class
