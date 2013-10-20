@@ -37,10 +37,7 @@ class users_controller extends base_controller {
 public function profile($user_name == NULL) {
 
     echo "testing";
-    
-    if(isset($this->template)) {
-        echo "template found!";
-    }
+
     /*
     If you look at _v_template you'll see it prints a $content variable in the <body>
     Knowing that, let's pass our v_users_profile.php view fragment to $content so 
