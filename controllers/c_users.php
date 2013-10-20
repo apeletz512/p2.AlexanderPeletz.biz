@@ -27,7 +27,7 @@ class users_controller extends base_controller {
     // print_r($_POST);
 
     # Insert this user into the database
-    $user_id = DB::instance(DB_NAME)->insert('users', $_POST);
+    $user_id = DB::instance(DB_NAME)->insert('Users', $_POST);
 
     # For now, just confirm they've signed up - 
     # You should eventually make a proper View for this
