@@ -88,9 +88,10 @@ class users_controller extends base_controller {
         param 3 = when to expire
         param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
         */
-        setcookie("token", $token, strtotime('+1 year'), '/');
+        setcookie('token', $token, strtotime('+1 year'), '/');
 
         # Send them to the main page - or whever you want them to go
+        echo "$token";
         echo "you're logged in!<br>";
         echo '<pre>';
         print_r($_COOKIE);
