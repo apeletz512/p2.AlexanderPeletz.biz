@@ -34,7 +34,7 @@ class users_controller extends base_controller {
     $_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
 
     # Insert this user into the database 
-    $user_id = DB::instance(DB_NAME)->insert("Users", $_POST);
+    $user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 
     # For now, just confirm they've signed up - 
     # You should eventually make a proper View for this    
@@ -63,7 +63,7 @@ class users_controller extends base_controller {
     # Search the db for this email and password
     # Retrieve the token if it's available
     $q = "SELECT token 
-        FROM Users 
+        FROM users 
         WHERE email = '".$_POST['email']."' 
         AND password = '".$_POST['password']."'";
 
@@ -90,7 +90,7 @@ class users_controller extends base_controller {
         setcookie("token", $token, strtotime('+1 year'), '/');
 
         # Send them to the main page - or whever you want them to go
-        #Router::redirect("/");
+        Router::redirect("/users/profile");
 
         }
 
