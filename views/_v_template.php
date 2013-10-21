@@ -11,35 +11,58 @@
     
 </head>
 
-<body>
-	<div id="menu">
-		<ul class="nav nav-tabs">
-			<li class="active">
-		    	<a href="/">Home</a>
-		  	</li>
-		  	<li class="divider-vertical"></li>
-		  
-		 	<!-- Menu for users who are logged in -->
-			<?php if($user): ?>
-				<li class="active">
-						<a href='/users/logout'>Logout</a>
-				</li> 
-				<li class="divider-vertical"></li>
-				<li>
-		    	        <a href='/users/profile'>Profile</a>
-		    	</li>
-		  
-		   	<?php else: ?>
-		   		<li>
-		   				<a href='/users/signup'>Sign up</a>
-		        </li>
-		        <li class="divider-vertical"></li>
-		        <li>
-		            	<a href='/users/login'>Log in</a>
-		        </li>
-		     <?php endif; ?>
-		</ul>
+<div class="container-fluid">
+	<div class="row-fluid">
+	    <div class="span6">
+	      <!--Sidebar content-->
+			<div id="menu">
+				<ul class="nav nav-tabs">
+					<li class="active">
+				    	<a href="/">Home</a>
+				  	</li>
+				  	<li class="divider-vertical"></li>
+				  
+				 	<!-- Menu for users who are logged in -->
+					<?php if($user): ?>
+						<li class="active">
+								<a href='/users/logout'>Logout</a>
+						</li> 
+						<li class="divider-vertical"></li>
+						<li>
+				    	        <a href='/users/profile'>Profile</a>
+				    	</li>
+				  
+				   	<?php else: ?>
+				   		<li>
+				   				<a href='/users/signup'>Sign up</a>
+				        </li>
+				        <li class="divider-vertical"></li>
+				        <li>
+				            	<a href='/users/login'>Log in</a>
+				        </li>
+				     <?php endif; ?>
+				</ul>
+			</div>
+		</div>
+		<div class="span6"></div>
 	</div>
+	
+
+  <div class="span2"></div>
+  <div class="span10">
+    <br>
+
+	<?php if(isset($content)) echo $content; ?>
+  
+  </div>
+  
+</div>
+
+
+
+
+<body>
+	
 
 <!--
     <div id='menu'>
