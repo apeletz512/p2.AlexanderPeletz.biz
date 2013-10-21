@@ -49,7 +49,7 @@
 	
 
   <div class="span2"></div>
-  <div class="span10">
+  <div class="span">
     <br>
 
 	<?php if(isset($content)) echo $content; ?>
@@ -86,5 +86,5 @@
 	<?php #if(isset($content)) echo $content; ?>
 	-->
 </body>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<!--script type="text/javascript" src="/js/bootstrap.min.js"></script-->
 </html>
