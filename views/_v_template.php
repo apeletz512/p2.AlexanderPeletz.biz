@@ -44,7 +44,7 @@
 				        </li>
 				    <?php else: ?>
 
-				       	</li>
+				       	<li>
 								<a href='/users/logout'>Sign out</a>
 						</li> 
 				     <?php endif; ?>
