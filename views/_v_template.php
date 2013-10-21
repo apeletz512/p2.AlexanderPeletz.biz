@@ -13,7 +13,7 @@
 
 <body>
 	<div id="menu">
-		<ul class="nav">
+		<ul class="nav nav-tabs">
 			<li class="active">
 		    	<a href="/">Home</a>
 		  	</li>
@@ -33,10 +33,10 @@
 		   		<li class="active">
 		   				<a href='/users/signup'>Sign up</a>
 		        </li>
-		        <li class="divider-vertical"></li>
+		        <li class="active"></li>
 		            	<a href='/users/login'>Log in</a>
-		        </li?
-		        <?php endif; ?>
+		        </li>
+		     <?php endif; ?>
 		</ul>
 	</div>
 
