@@ -7,7 +7,7 @@
 					
 	<!-- Controller Specific JS/CSS -->
 	<!--<?php #if(isset($client_files_head)) echo $client_files_head; ?>-->
-	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     
 </head>
 
@@ -70,5 +70,5 @@
 
 	<!--<?php if(isset($client_files_body)) echo $client_files_body; ?>-->
 </body>
-<!--type="text/javascript" src="bootstrap/js/bootstrap.min.js"-->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </html>
