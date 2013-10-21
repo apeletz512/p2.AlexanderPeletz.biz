@@ -39,5 +39,5 @@
 
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 </body>
-<!--<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>-->
+<!--type="text/javascript" src="bootstrap/js/bootstrap.min.js"-->
 </html>
