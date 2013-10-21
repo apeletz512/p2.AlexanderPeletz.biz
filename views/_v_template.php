@@ -12,27 +12,57 @@
 </head>
 
 <body>
+	<div id="menu">
+		<ul class="nav">
+			<li class="active">
+		    	<a href="/">Home</a>
+		  	</li>
+		  	<li class="divider-vertical"></li>
+		  
+		 	<!-- Menu for users who are logged in -->
+			<?php if($user): ?>
+				<li class="active">
+						<a href='/users/logout'>Logout</a>
+				</li> 
+				<li class="divider-vertical"></li>
+				<li class="active">
+		    	        <a href='/users/profile'>Profile</a>
+		    	</li>
+		  
+		   	<?php else: ?>
+		   		<li class="active">
+		   				<a href='/users/signup'>Sign up</a>
+		        </li>
+		        <li class="divider-vertical"></li>
+		            	<a href='/users/login'>Log in</a>
+		        </li?
+		        <?php endif; ?>
+		</ul>
+	</div>
 
+<!--
     <div id='menu'>
+
+        <ul class="nav">
+
 
         <a href='/'>Home</a>
 
-        <!-- Menu for users who are logged in -->
-        <?php if($user): ?>
+        Menu for users who are logged in
+        <?php #if($user): ?>
 
             <a href='/users/logout'>Logout</a>
             <a href='/users/profile'>Profile</a>
 
-        <!-- Menu options for users who are not logged in -->
-        <?php else: ?>
+         Menu options for users who are not logged in
+        <?php #else: ?>
 
             <a href='/users/signup'>Sign up</a>
             <a href='/users/login'>Log in</a>
 
-        <?php endif; ?>
+        <?php #endif; ?>
 
-    </div>
-
+    </div> -->
     <br>
 
 	<?php if(isset($content)) echo $content; ?>
