@@ -11,7 +11,7 @@
     <br><br>
 
     <?php if(isset($error)): ?>
-    	 <div class="error">
+    	 <div class="alert">
             Login failed. Please double check your email and password.
         </div>
         <br>
