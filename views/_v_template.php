@@ -7,12 +7,13 @@
 					
 	<!-- Controller Specific JS/CSS -->
 	<?php if(isset($client_files_head)) echo $client_files_head; ?>
-	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+    
 </head>
 
 <body>
 
-    <div id='menu'>
+    <div id='menu' class=>
 
         <a href='/'>Home</a>
 
@@ -38,4 +39,5 @@
 
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 </body>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js
 </html>
