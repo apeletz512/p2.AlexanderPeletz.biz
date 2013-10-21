@@ -48,8 +48,8 @@
 	</div>
 	
 
-  <div class="span2"></div>
-  <div class="span">
+  
+  <div class="span12">
     <br>
 
 	<?php if(isset($content)) echo $content; ?>
