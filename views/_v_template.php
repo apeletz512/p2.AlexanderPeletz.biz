@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 					
 	<!-- Controller Specific JS/CSS -->
-	<?php if(isset($client_files_head)) echo $client_files_head; ?>
+	<!--<?php #if(isset($client_files_head)) echo $client_files_head; ?>-->
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
     
 </head>
@@ -39,5 +39,5 @@
 
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 </body>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </html>
