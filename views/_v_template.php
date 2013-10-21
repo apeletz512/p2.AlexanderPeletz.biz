@@ -13,33 +13,40 @@
 <body>
 <div class="container-fluid">
 	<div class="row-fluid">
-	    <div class="span6">
 	      <!--Sidebar content-->
-			<div id="menu">
+			<div id="left-nav" class="span11">
 				<ul class="nav nav-tabs">
-					<li class="active">
+					<li>
 				    	<a href="/">Home</a>
 				  	</li>
 				  	<li class="divider-vertical"></li>
 				  
-				 	<!-- Menu for users who are logged in -->
+				 	<!-- Different menu based on user-->
 					<?php if($user): ?>
-						<li class="active">
-								<a href='/users/logout'>Logout</a>
-						</li> 
-						<li class="divider-vertical"></li>
 						<li>
-				    	        <a href='/users/profile'>Profile</a>
+				    	    <a href='/users/profile'>Profile</a>
 				    	</li>
 				  
 				   	<?php else: ?>
 				   		<li>
-				   				<a href='/users/signup'>Sign up</a>
+				   			<a href='/users/signup'>Sign up</a>
 				        </li>
-				        <li class="divider-vertical"></li>
+				     <? endif; ?>
+				</ul>
+			</div>
+			<div id="right-nav" class="span1">
+				<ul class="nav nav-tabs">
+				    
+					<!--Different menu based on user-->
+				    <?php if($user): ?>
 				        <li>
-				            	<a href='/users/login'>Log in</a>
+				            	<a href='/users/login'>Sign in</a>
 				        </li>
+				    <?php else: ?>
+
+				       	</li>
+								<a href='/users/logout'>Sign out</a>
+						</li> 
 				     <?php endif; ?>
 				</ul>
 			</div>
