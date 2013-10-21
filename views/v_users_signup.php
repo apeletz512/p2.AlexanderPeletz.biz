@@ -2,7 +2,7 @@
 
 <fieldset>
     <legend>Hello, please sign up to use <?=APP_NAME?>.</legend>
-    
+    <div class="span11 offset1">
         <br><br>
         <label>Given Name</label>
         <input type="text" name='first_name'>
@@ -24,7 +24,8 @@
           <input type="checkbox">Receive email confirmation
         </label>
         <br><br>
-    <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </div>
   </fieldset>
 
 </form>
