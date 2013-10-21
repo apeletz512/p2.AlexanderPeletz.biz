@@ -13,7 +13,7 @@
 
 <body>
 
-    <div id='menu' class=>
+    <div id='menu'>
 
         <a href='/'>Home</a>
 
@@ -39,5 +39,5 @@
 
 	<?php if(isset($client_files_body)) echo $client_files_body; ?>
 </body>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<!--<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>-->
 </html>
