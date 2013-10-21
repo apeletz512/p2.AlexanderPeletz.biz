@@ -1,21 +1,29 @@
 <form method='POST' action='/users/p_signup'>
 
-    First Name<br>
-    <input type='text' name='first_name'>
-    <br><br>
+<fieldset>
+    <legend>Hello, please sign up to use <?=APP_NAME?>.</legend>
+    
+        <label>Given Name</label>
+        <input type="text" name='first_name'>
+        <br>
 
-    Last Name<br>
-    <input type='text' name='last_name'>
-    <br><br>
+        <label>Surname</label>
+        <input type='text' name='last_name'>
+        <br>
 
-    Email<br>
-    <input type='text' name='email'>
-    <br><br>
+        <label>Email Address</label>
+        <input type='text' name='email'>
+        <br>
 
-    Password<br>
-    <input type='password' name='password'>
-    <br><br>
-
-    <input type='submit' class="btn btn-success" value='Sign up'>
+        <label>Password</label>
+        <input type='password' name='password'>
+        <br><br>
+    
+        <label class="checkbox">
+          <input type="checkbox">Receive email confirmation
+        </label>
+        <br><br>
+    <button type="submit" class="btn btn-success">Sign Up</button>
+  </fieldset>
 
 </form>
