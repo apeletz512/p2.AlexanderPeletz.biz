@@ -34,6 +34,7 @@
 		   				<a href='/users/signup'>Sign up</a>
 		        </li>
 		        <li class="active"></li>
+		        <li>
 		            	<a href='/users/login'>Log in</a>
 		        </li>
 		     <?php endif; ?>
