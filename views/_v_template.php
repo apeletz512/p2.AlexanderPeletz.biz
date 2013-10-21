@@ -28,7 +28,8 @@
 				    	</li>
 				  
 				   	<?php else: ?>
-				   		<li>
+
+				   		<li class="pull-right">
 				   			<a href='/users/signup'>Sign up</a>
 				        </li>
 				     <? endif; ?>
