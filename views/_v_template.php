@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     
 </head>
-
+<body>
 <div class="container-fluid">
 	<div class="row-fluid">
 	    <div class="span6">
@@ -58,12 +58,6 @@
   
 </div>
 
-
-
-
-<body>
-	
-
 <!--
     <div id='menu'>
 
@@ -86,12 +80,11 @@
 
         <?php #endif; ?>
 
-    </div> -->
+    </div>
     <br>
 
-	<?php if(isset($content)) echo $content; ?>
-
-	<!--<?php if(isset($client_files_body)) echo $client_files_body; ?>-->
+	<?php #if(isset($content)) echo $content; ?>
+	-->
 </body>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </html>
