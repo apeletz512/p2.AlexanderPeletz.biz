@@ -1,3 +1,5 @@
+
+
 <form method='POST' action='/users/p_login'>
 
     Email<br>
@@ -16,6 +18,6 @@
         </div>
         <br>
    <?php endif; ?>
-    <input type='submit' value='Log in'>
+    <input type='submit' class="btn btn-success" value='Log in'>
 
 </form>

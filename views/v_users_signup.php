@@ -16,6 +16,6 @@
     <input type='password' name='password'>
     <br><br>
 
-    <input type='submit' value='Sign up'>
+    <input type='submit' class="btn btn-success" value='Sign up'>
 
 </form>
