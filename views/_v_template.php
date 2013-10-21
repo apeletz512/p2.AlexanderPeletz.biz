@@ -25,15 +25,15 @@
 						<a href='/users/logout'>Logout</a>
 				</li> 
 				<li class="divider-vertical"></li>
-				<li class="active">
+				<li>
 		    	        <a href='/users/profile'>Profile</a>
 		    	</li>
 		  
 		   	<?php else: ?>
-		   		<li class="active">
+		   		<li>
 		   				<a href='/users/signup'>Sign up</a>
 		        </li>
-		        <li class="active"></li>
+		        <li class="divider-vertical"></li>
 		        <li>
 		            	<a href='/users/login'>Log in</a>
 		        </li>
