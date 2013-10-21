@@ -3,6 +3,7 @@
 <fieldset>
     <legend>Hello, please sign up to use <?=APP_NAME?>.</legend>
     
+        <br><br>
         <label>Given Name</label>
         <input type="text" name='first_name'>
         <br>
