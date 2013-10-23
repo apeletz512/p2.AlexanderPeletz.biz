@@ -17,7 +17,7 @@
 	      <!--Sidebar content-->
 			<div id="left-menu" class>
 				<ul class="nav nav-tabs">
-					<li class="active">
+					<li> <!--class="active"-->
 				    	<a href="/">Home</a>
 				  	</li>
 				  	<li class="divider-vertical"></li>
