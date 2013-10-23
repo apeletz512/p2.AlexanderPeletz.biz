@@ -18,6 +18,6 @@
         </div>
         <br>
    <?php endif; ?>
-    <input type='submit' class="btn btn-success" value='Log in'>
+    <input type='submit' id="loginBtn" class="btn btn-success" value='Log in'>
 
 </form>
