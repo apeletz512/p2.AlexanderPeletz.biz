@@ -25,10 +25,10 @@
 				 	<!-- Menu for users who are logged in -->
 					<?php if($user): ?>
 						<li>
-							<a href='/users/logout'>Logout</a>
+							<a href='/users/profile'>Profile</a>
 						</li> 
 						<li class="pull-right">
-				    		<a href='/users/profile'>Profile</a>
+				    		<a href='/users/logout'>Log out</a>
 				    	</li>
 				  
 				   	<?php else: ?>
