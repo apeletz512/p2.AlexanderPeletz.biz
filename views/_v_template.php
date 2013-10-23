@@ -49,7 +49,7 @@
   
   <div class="span12">
     <br>
-
+  <div>
 	<?php if(isset($content)) echo $content; ?>
   
   </div>
@@ -60,7 +60,7 @@
   	<?php if(isset($postbox)) echo $postbox; ?>
 
   </div>
-  
+  </div>
 </div>
 
 <!--
