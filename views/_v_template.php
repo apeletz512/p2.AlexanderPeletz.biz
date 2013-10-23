@@ -53,6 +53,13 @@
 	<?php if(isset($content)) echo $content; ?>
   
   </div>
+
+  <div>
+  	<br><br>
+
+  	<?php if(isset($postbox)) echo $postbox; ?>
+
+  </div>
   
 </div>
 

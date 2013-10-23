@@ -131,6 +131,7 @@ class users_controller extends base_controller {
     $this->template->content = View::instance('v_users_profile');
     $this->template->title = "Profile";
     $this->template->content->user_name = $user_name;
+    $this->template->postbox = View::instance('v_posts_add');
 
     echo $this->template; 
     }   
