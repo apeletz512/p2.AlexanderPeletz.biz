@@ -53,7 +53,7 @@
 	<?php if(isset($content)) echo $content; ?>
   
   </div>
-
+  <br>
   <div>
   	<br><br>
 
