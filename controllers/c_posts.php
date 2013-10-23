@@ -16,9 +16,9 @@ class posts_controller extends base_controller {
         # Render template
             echo $this->template;
 
+    }
 
-
-	function p_add() {
+	public function p_add() {
 
 		var_dump($_POST);
 
