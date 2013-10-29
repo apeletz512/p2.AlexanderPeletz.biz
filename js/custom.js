@@ -1,4 +1,4 @@
-<script>
+
 
 function activateTabs() {
 	var currentPage;
@@ -23,4 +23,3 @@ function activateTabs() {
 }
 
 }
-</script>
