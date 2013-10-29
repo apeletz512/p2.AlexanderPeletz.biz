@@ -1,20 +1,4 @@
-<?php 
-
-    $q = "SELECT 
-            posts .* , 
-            users.first_name, 
-            users.last_name
-        FROM posts
-        INNER JOIN users 
-            ON posts.user_id = users.user_id;
-
-
-    # Run the query
-    $posts = DB::instance(DB_NAME)->select_rows($q);
-
-
-
-foreach($posts as $post): ?>
+<?php foreach($posts as $post): ?>
 
 <article>
 
