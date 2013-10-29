@@ -17,22 +17,22 @@
 	      <!--Sidebar content-->
 			<div id="left-menu" class>
 				<ul class="nav nav-tabs">
-					<li id="home"> <!--class="active"-->
+					<li id="homeTab"> <!--class="active"-->
 				    	<a href="/">Home</a>
 				  	</li>
 				  	<li class="divider-vertical"></li>
 				  
 				 	<!-- Menu for users who are logged in -->
 					<?php if($user): ?>
-						<li id="profile">
+						<li id="profileTab">
 							<a href='/users/profile'>Profile</a>
 						</li> 
-						<li id="logout" class="pull-right">
+						<li id="logoutTab" class="pull-right">
 				    		<a href='/users/logout'>Log out</a>
 				    	</li>
 				  
 				   	<?php else: ?>
-				   		<li id="signup">
+				   		<li id="signupTab">
 				   				<a href='/users/signup'>Sign up</a>
 				        </li>
 				        <li id="loginTab" class="pull-right">

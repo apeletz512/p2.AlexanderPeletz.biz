@@ -1,8 +1,9 @@
 
 
-var loginTab = document.getElementById("loginTab");
-loginTab.onClick = activateTab("loginTab")
-
+var allTabs = document.getElementsByTagName("li");
+if (allTabs[i].id) {
+	alltabs[i].onClick = activateTab(allTabs[i].id);
+}
 
 
 function activateTab(tabId) {
@@ -15,18 +16,14 @@ function activateTab(tabId) {
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		window.alert(i);
 		if ((allTabs[i].id == "loginTab") || (allTabs[i].id == "logoutTab")) {
-			window.alert(allTabs[i].id);
 			allTabs[i].setAttribute("class", "pull-right");
-			window.alert("if");
 		}	
 		else if (allTabs[i].id) {
 			allTabs[i].setAttribute("class", "");
-			window.alert("else");
 		}
 	}	
 
 	currentTab = document.getElementById(tabId)
-	window.alert("found loginBtn");
 	currentTab = document.getElementById(tabId);
 	currentTab.setAttribute("class","active pull-right");
 
