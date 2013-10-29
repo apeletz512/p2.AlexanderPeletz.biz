@@ -25,10 +25,9 @@ function activateTab(tabId) {
 		}
 	}	
 
-	document.getElementById(tabId)) {
-		window.alert("found loginBtn");
-		currentTab = document.getElementById(tabId);
-		currentTab.setAttribute("class","active pull-right");
-	}
+	document.getElementById(tabId)
+	window.alert("found loginBtn");
+	currentTab = document.getElementById(tabId);
+	currentTab.setAttribute("class","active pull-right");
 
 }
