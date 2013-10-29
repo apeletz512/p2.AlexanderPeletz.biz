@@ -51,7 +51,7 @@ class posts_controller extends base_controller {
         FROM posts
         INNER JOIN users 
             ON posts.user_id = users.user_id
-        WHERE posts.user_id = '".$this->user->user_id."'";
+       ";
 
 
     # Run the query

@@ -6,8 +6,7 @@
             users.last_name
         FROM posts
         INNER JOIN users 
-            ON posts.user_id = users.user_id
-        WHERE posts.user_id = '".$user_id."'";
+            ON posts.user_id = users.user_id;
 
 
     # Run the query

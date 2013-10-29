@@ -127,14 +127,26 @@ class users_controller extends base_controller {
         Router::redirect("/users/login");
     }
 
-    # If they weren't redirected away, continue:
- 
+    # If they weren't redirected away, continue...
+    
+    # Get all of the current user's posts from the database
+    $q = "SELECT 
+            posts .* , 
+            users.first_name, 
+            users.last_name
+        FROM posts
+        INNER JOIN users 
+            ON posts.user_id = users.user_id
+        WHERE posts.user_id ='"$this->user->user_id;
+    $posts = DB::instance(DB_NAME)->select_rows($q);
+
+    # Now echo out all of our views onto the profile page
     $this->template->content = View::instance('v_users_profile');
     $this->template->title = "Profile";
     $this->template->content->user_name = $user_name;
     $this->template->postbox = View::instance('v_posts_add');
     $this->template->posts = View::instance('v_posts_index');
-    $this->template->posts->user_id = $this->user->user_id;
+    $this->template->posts->posts = $posts;
     echo $this->template; 
     }   
 
