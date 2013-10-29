@@ -19,7 +19,7 @@ function activateTab(tabId) {
 			allTabs[i].setAttribute("class", "pull-right");
 			window.alert("if");
 		}	
-		elseif (allTab[i].id) {
+		elseif (allTabs[i].id) {
 			allTabs[i].setAttribute("class", "");
 			window.alert("else");
 		}
