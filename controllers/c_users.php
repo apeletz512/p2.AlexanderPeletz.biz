@@ -134,7 +134,7 @@ class users_controller extends base_controller {
     $this->template->content->user_name = $user_name;
     $this->template->postbox = View::instance('v_posts_add');
     $this->template->posts = View::instance('v_posts_index');
-
+    $this->template->posts->user_id = $this->user->user_id;
     echo $this->template; 
     }   
 
