@@ -25,10 +25,11 @@ function activateTab(tabId) {
 
 	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
 		currentTab.setAttribute("class","active pull-right");
-		window.alert("if - "+ currentTab.id);
+		window.alert("if - setActive - "+ currentTab.id);
 	}
 	
 	else {
 		currentTab.setAttribute("class", "active");
+		window.alert("else - setActive - " + currentTab.id);
 	}
 }
