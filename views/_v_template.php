@@ -48,18 +48,18 @@
 
   
   <div class="span12">
-    <br>
-  <div>
-	<?php if(isset($content)) echo $content; ?>
-  
-  </div>
-  <br>
-  <div>
-  	<br><br>
-
-  	<?php if(isset($postbox)) echo $postbox; ?>
-
-  </div>
+   	<br>
+	  <div>
+		<?php if(isset($content)) echo $content; ?>
+	  </div>
+	<br>
+	  <div>
+	  	<?php if(isset($postbox)) echo $postbox; ?>
+	  </div>
+	<br>  
+	  <div>
+	  	<?php if(isset($posts)) echo $posts; ?>
+	  </div>
   </div>
 </div>
 

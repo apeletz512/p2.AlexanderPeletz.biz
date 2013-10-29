@@ -38,7 +38,7 @@ class users_controller extends base_controller {
 
     # For now, just confirm they've signed up - 
     # You should eventually make a proper View for this
-  
+
     }
 
 
@@ -133,6 +133,7 @@ class users_controller extends base_controller {
     $this->template->title = "Profile";
     $this->template->content->user_name = $user_name;
     $this->template->postbox = View::instance('v_posts_add');
+    $this->template->posts = View::instance('v_posts_index');
 
     echo $this->template; 
     }   
