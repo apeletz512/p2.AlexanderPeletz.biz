@@ -10,18 +10,18 @@ for (var i = allTabs.length-1; i >=0; i--) {
 function activateTab(tabId) {
 
 	for (i = allTabs.length - 1; i >= 0; i--) {
-		window.alert(i);
 		if ((allTabs[i].id == "loginTab") || (allTabs[i].id == "logoutTab")) {
 			allTabs[i].setAttribute("class", "pull-right");
-		}	
-		else if (allTabs[i].id) {
+		}	window.alert("if - "+ allTabs[i].id);
+		else if (allTabs[i].Id) {
 			allTabs[i].setAttribute("class", "");
+			window.alert("else - "+ allTabs[i].id);
 		}
 	}	
 
 	var currentTab = document.getElementById(tabId)
 
-	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
+	if ((currentTab.Id == "logoutTab") || (currentTab.Id = "loginTab")) {
 		currentTab.setAttribute("class","active pull-right");
 	}
 	
