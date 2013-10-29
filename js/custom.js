@@ -1,15 +1,14 @@
 
 
 var allTabs = document.getElementsByTagName("li");
-if (allTabs[i].id) {
-	alltabs[i].onClick = activateTab(allTabs[i].id);
+for (var i = allTabs.length-1; i >=0; i--) {
+	if (allTabs[i].id) {
+		alltabs[i].onClick = activateTab(allTabs[i].id);
+	}
 }
-
 
 function activateTab(tabId) {
 	var currentTab;
-	var allTabs;
-	var i;
 	
 	allTabs = document.getElementsByTagName("li");
 
