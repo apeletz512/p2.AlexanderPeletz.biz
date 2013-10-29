@@ -4,6 +4,7 @@ activateTab();
 function activateTab() {
 
 	//reset all tabs to default/inactive
+	var allTabs = document.getElementsByTagName("li");
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		if ((allTabs[i].id == "loginTab") || (allTabs[i].id == "logoutTab")) {
 			allTabs[i].setAttribute("class", "pull-right");
@@ -16,18 +17,15 @@ function activateTab() {
 	}	
 
 	//now check what page we're on by finding a unique element on that page
+	var currentTab;
 	
-
-	var currentTab = document.getElementById(tabId)
 	if (document.getElementById("loginBtn")) {
 		currentTab = document.getElementById("loginTab");
 		currentTab.setAttribute("class", "active pull-right");
 	}
-
 	else if (document.getElementById("signupBtn")) {
 		currentTab = document.getElementById("signupTab");
 		currentTab.setAttribute("class", "active");
-
 	}
 /*
 	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
