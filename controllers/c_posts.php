@@ -39,12 +39,28 @@ class posts_controller extends base_controller {
 
 	public function index() {
 
-		$q = 'SELECT *
-				FROM posts';
+    # Set up the View
+    $this->template->content = View::instance('v_posts_index');
+    $this->template->title   = "Posts";
 
-		$post = DB::instance(DB_NAME)->select_rows($q);
+    # Build the query
+    $q = "SELECT 
+            posts .* , 
+            users.first_name, 
+            users.last_name
+        FROM posts
+        INNER JOIN users 
+            ON posts.user_id = users.user_id";
 
-		echo $this->template;
+    # Run the query
+    $posts = DB::instance(DB_NAME)->select_rows($q);
+
+    # Pass data to the View
+    $this->template->content->posts = $posts;
+
+    # Render the View
+    echo $this->template;
+
 	}
 
 
