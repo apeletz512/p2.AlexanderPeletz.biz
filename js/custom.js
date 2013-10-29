@@ -12,13 +12,14 @@ function activateTab(tabId) {
 
 	currentTab = document.getElementById(tabId);
 	
+	allTabs = document.getElementsByTagName("li");
+
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		window.alert(i);
 		if ((allTabs[i].id = "loginTab") || (allTabs[i].id = "logoutTab")) {
 			allTabs[i].setAttribute("class", "pull-right");
 			window.alert("if");
-		}
-			
+		}	
 		else {
 			allTabs[i].setAttribute("class", "");
 			window.alert("else");
