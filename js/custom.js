@@ -3,7 +3,7 @@
 var allTabs = document.getElementsByTagName("li");
 for (var i = allTabs.length-1; i >=0; i--) {
 	if (allTabs[i].id) {
-		allTabs[i].setAttribute("onClick","activateTab("+allTabs[i].id+")";
+		allTabs[i].setAttribute("onClick","activateTab("+allTabs[i].id+")");
 		window.alert(allTabs[i].getAttribute("onClick"));
 	}
 }
