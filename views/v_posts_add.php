@@ -1,6 +1,19 @@
-<form method = 'POST' action = '/posts/p_add'>
+<form method='POST' action='/posts/p_add'>
 
-	<input type="text" name="post"/>
-	<input type="submit"/>
+    <label for='content'>New Post:</label><br>
+    <textarea name='content' id='content'></textarea>
 
-</form>
+    <br><br>
+    <input type='submit' value='New post'>
+
+</form> 
+
+<div>
+
+<?php if(isset($somePosts)) {
+	
+		var_dump($_POST);
+	}
+?>
+
+</div>
