@@ -8,9 +8,6 @@ for (var i = allTabs.length-1; i >=0; i--) {
 }
 
 function activateTab(tabId) {
-	var currentTab;
-	
-	allTabs = document.getElementsByTagName("li");
 
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		window.alert(i);
@@ -22,8 +19,13 @@ function activateTab(tabId) {
 		}
 	}	
 
-	currentTab = document.getElementById(tabId)
-	currentTab = document.getElementById(tabId);
-	currentTab.setAttribute("class","active pull-right");
+	var currentTab = document.getElementById(tabId)
 
+	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
+		currentTab.setAttribute("class","active pull-right");
+	}
+	
+	else {
+		currentTab.setAttribute("class", "active");
+	}
 }
