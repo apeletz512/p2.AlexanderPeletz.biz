@@ -24,7 +24,7 @@
           <input type="checkbox">Receive email confirmation
         </label>
         <br><br>
-        <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" id="signupBtn" class="btn btn-success">Sign Up</button>
     </div>
   </fieldset>
 
