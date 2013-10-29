@@ -137,7 +137,7 @@ class users_controller extends base_controller {
         FROM posts
         INNER JOIN users 
             ON posts.user_id = users.user_id
-        WHERE posts.user_id ='"$this->user->user_id"'";
+        WHERE posts.user_id ='"$this->user->user_id."'";
     $posts = DB::instance(DB_NAME)->select_rows($q);
 
     # Now echo out all of our views onto the profile page
