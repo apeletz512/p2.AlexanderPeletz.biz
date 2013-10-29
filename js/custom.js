@@ -8,7 +8,7 @@ function activateTabs() {
 
 	allTabs = document.getElementsByTag("li");
 	for (i = allTabs.length - 1; i >= 0; i--) {
-		if ((allTabs[i].id = "loginTab") || (allTabs[i].id = "logoutTab") {
+		if ((allTabs[i].id = "loginTab") || (allTabs[i].id = "logoutTab")) {
 			allTabs[i].setAttribute("class", "pull-right");
 		}
 			
@@ -20,6 +20,6 @@ function activateTabs() {
 	if (document.getElementById("loginBtn")) {
 		currentTab = document.getElementById("loginTab");
 		currentTab.setAttribute("class","active pull-right");
-}
+	}
 
 }
