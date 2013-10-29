@@ -9,14 +9,13 @@ function activateTab(tabId) {
 	var currentTab;
 	var allTabs;
 	var i;
-
-	currentTab = document.getElementById(tabId);
 	
 	allTabs = document.getElementsByTagName("li");
 
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		window.alert(i);
 		if ((allTabs[i].id = "loginTab") || (allTabs[i].id = "logoutTab")) {
+			window.alert(allTabs[i].id);
 			allTabs[i].setAttribute("class", "pull-right");
 			window.alert("if");
 		}	
@@ -26,7 +25,7 @@ function activateTab(tabId) {
 		}
 	}	
 
-	document.getElementById(tabId)
+	currentTab = document.getElementById(tabId)
 	window.alert("found loginBtn");
 	currentTab = document.getElementById(tabId);
 	currentTab.setAttribute("class","active pull-right");
