@@ -4,6 +4,7 @@ var allTabs = document.getElementsByTagName("li");
 for (var i = allTabs.length-1; i >=0; i--) {
 	if (allTabs[i].id) {
 		allTabs[i].onClick = activateTab(allTabs[i].id);
+		window.alert(allTabs[i].onClick);
 	}
 }
 
@@ -22,8 +23,9 @@ function activateTab(tabId) {
 
 	var currentTab = document.getElementById(tabId)
 
-	if ((currentTab.Id == "logoutTab") || (currentTab.Id = "loginTab")) {
+	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
 		currentTab.setAttribute("class","active pull-right");
+		window.alert("if - "+ currentTab.id);
 	}
 	
 	else {
