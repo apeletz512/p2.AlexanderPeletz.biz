@@ -91,5 +91,5 @@
 	<?php #if(isset($content)) echo $content; ?>
 	-->
 </body>
-<!--script type="text/javascript" src="/js/bootstrap.min.js"></script-->
+<script type="text/javascript" src="/js/custom.js"></script>
 </html>
