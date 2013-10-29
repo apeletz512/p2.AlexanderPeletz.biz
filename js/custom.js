@@ -13,7 +13,7 @@ function activateTab(tabId) {
 		if ((allTabs[i].id == "loginTab") || (allTabs[i].id == "logoutTab")) {
 			allTabs[i].setAttribute("class", "pull-right");
 		}	window.alert("if - "+ allTabs[i].id);
-		elif(allTabs[i].Id) {
+		else if (allTabs[i].id) {
 			allTabs[i].setAttribute("class", "");
 			window.alert("else - "+ allTabs[i].id);
 		}
