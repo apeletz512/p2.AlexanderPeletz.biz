@@ -1,12 +1,17 @@
 
 
-function activateTabs() {
-	var currentPage;
+var loginTab = document.getElementById("loginTab");
+loginTab.onClick = activateTab("loginTab")
+
+
+
+function activateTab(tabId) {
 	var currentTab;
 	var allTabs;
 	var i;
 
-	allTabs = document.getElementsByTag("li");
+	currentTab = document.getElementById(tabId);
+	
 	for (i = allTabs.length - 1; i >= 0; i--) {
 		window.alert(i);
 		if ((allTabs[i].id = "loginTab") || (allTabs[i].id = "logoutTab")) {
@@ -20,9 +25,9 @@ function activateTabs() {
 		}
 	}	
 
-	if (document.getElementById("loginBtn")) {
+	document.getElementById(tabId)) {
 		window.alert("found loginBtn");
-		currentTab = document.getElementById("loginTab");
+		currentTab = document.getElementById(tabId);
 		currentTab.setAttribute("class","active pull-right");
 	}
 
