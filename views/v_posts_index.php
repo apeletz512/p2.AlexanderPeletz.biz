@@ -1,3 +1,5 @@
+<?php var_dump($posts); ?>
+
 <?php foreach($posts as $post): ?>
 
 <article>
