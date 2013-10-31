@@ -140,7 +140,7 @@ class users_controller extends base_controller {
         FROM posts
         INNER JOIN users_users 
             ON posts.user_id = users_users.user_id_followed
-            OR posts.user_id = ".$this->user->user_id.
+            OR posts.user_id = ".$this->user->user_id."
         INNER JOIN users 
             ON posts.user_id = users.user_id
         WHERE users_users.user_id = ".$this->user->user_id."
