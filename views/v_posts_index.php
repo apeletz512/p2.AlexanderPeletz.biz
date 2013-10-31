@@ -2,7 +2,6 @@
 
 <article>
 
-    <?php echo "something here?"; ?>
     <h1><?=$post['first_name']?> <?=$post['last_name']?> posted:</h1>
 
     <p><?=$post['content']?></p>
