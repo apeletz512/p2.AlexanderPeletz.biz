@@ -4,7 +4,11 @@ class posts_controller extends base_controller {
 
 	public function __construct() {
         parent::__construct();
-
+        
+        # If user is blank, they're not logged in; redirect them to the login page
+    	if(!$this->user) {
+        	Router::redirect("/users/login");
+    	}
      }
 	
     public function add() {
