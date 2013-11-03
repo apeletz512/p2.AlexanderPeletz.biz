@@ -30,7 +30,7 @@
 						<li id="findOthersTab">
 							<a href='/posts/users'>Find Others</a>
 						</li>
-						<li id="settingsTab" class="pull-right">
+						<li id="settingsTab">
 							<a href='/users/settings'>Settings</a>
 						</li>
 						<li id="logoutTab" class="pull-right">
@@ -53,9 +53,9 @@
 	
 
   
-  <div class="span12">
+  <div class="row-fluid">
    	<br>
-	  <div>
+	  <div class>
 		<?php if(isset($content)) echo $content; ?>
 	  </div>
 	<br>

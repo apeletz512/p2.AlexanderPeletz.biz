@@ -3,12 +3,15 @@
 <?php else: ?>
     <h1>No user specified</h1>
 <?php endif; ?>
-
+<div class="span6">
 <fieldset>
-	<form method="post" action="/users/p_settings">
+	<form method="POST" action="/users/p_settings">
 		<label>Select your timezone:</label>
-		<select>
+		<select name="timezone">
 			
+			<?php if(isset($user->timezone)): ?>
+			<option><?=$user->timezone?></option>
+			<?php endif; ?>
 
 			<option>America/New_York</option>
 			<option>America/Chicago</option>
@@ -33,9 +36,8 @@
 			<option>Atlantic/Azores</option>
 			<option>America/Sao_Paulo</option>
 			<option>America/Santiago</option>
+			<option>America/Noronha</option>
 		</select>
-
-		<button type="submit" id="saveBtn" class="btn btn-inverse">Save</button>
-		<input type="submit" id="saveBtn2" class="btn btn-inverse" value="Save">
+		<input type="submit" id="saveBtn" class="btn btn-inverse" value="Save">
 	</form>
 </fieldset>

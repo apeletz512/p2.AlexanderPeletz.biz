@@ -106,6 +106,17 @@ class users_controller extends base_controller {
         setcookie("token", $token, strtotime('+1 year'), '/');
 
         # Send them to the main page - or whever you want them to go
+        
+        $q = "SELECT user_id 
+        FROM users 
+        WHERE email = '".$_POST['email']."' 
+        AND password = '".$_POST['password']."'";
+
+        $userID = DB::instance(DB_NAME)->select_field($q);
+        $login_data['user_id'] = $userID;
+        $login_data['logged_in'] = Time::now();
+        $logged_in = DB::instance(DB_NAME)->insert("users_login", $login_data);
+
         Router::redirect("/users/profile");
 
         }
@@ -134,8 +145,6 @@ class users_controller extends base_controller {
 
     public function profile($user_name = NULL) {
 
-
-
     # If user is blank, they're not logged in; redirect them to the login page
     if(!$this->user) {
         Router::redirect("/users/login");
@@ -162,20 +171,52 @@ class users_controller extends base_controller {
     
     $posts = DB::instance(DB_NAME)->select_rows($q);
 
+
+    $q = "SELECT login.user_id user_id, IFNULL(COUNT( logged_in ),0) login, IFNULL(posts,0) posts, IFNULL(following,0) following, IFNULL(followed,0) followed
+            FROM users_login login
+            
+            LEFT OUTER JOIN (
+                SELECT user_id, COUNT( post_id ) posts
+                FROM posts
+                WHERE user_id =  '".$this->user->user_id."'
+            ) posts ON login.user_id = posts.user_id
+            
+            LEFT OUTER JOIN (
+                SELECT user_id, COUNT( user_user_id ) following
+                FROM users_users
+                WHERE user_id =  '".$this->user->user_id."'
+            )following ON login.user_id = following.user_id
+            
+            LEFT OUTER JOIN (
+                SELECT user_id_followed, COUNT( user_user_id ) followed
+                FROM users_users
+                WHERE user_id_followed =  '".$this->user->user_id."'
+            )followed ON login.user_id = followed.user_id_followed
+            
+            WHERE login.user_id =  '".$this->user->user_id."'";
+    
+    $userStats = DB::instance(DB_NAME)->select_row($q);
+    
+
     # Now echo out all of our views onto the profile page
     $this->template->content = View::instance('v_users_profile');
     $this->template->title = "Profile";
+    
+    $this->template->content->loginCount = $userStats['login'];
+    $this->template->content->postCount = $userStats['posts'];
+    $this->template->content->followingCount = $userStats['following'];
+    $this->template->content->followedCount = $userStats['followed'];
     $this->template->content->user_name = $user_name;
     $this->template->postbox = View::instance('v_posts_add');
     $this->template->posts = View::instance('v_posts_index');
     $this->template->posts->posts = $posts;
     echo $this->template; 
+
     }   
 
     public function settings() {
     # Setup view
     $this->template->content = View::instance('v_users_settings');
-    $this->template->content->error = $error;
     $this->template->title   = "Settings";
 
     # Render template
@@ -184,8 +225,14 @@ class users_controller extends base_controller {
     }
 
     public function p_settings() {
-    var_dump($_POST);
+    
+    $user_timezone = DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = '".$this->user->user_id."'");
+
+    # After saving settings, return to profile page
+    Router::redirect("/users/profile");
+
 
     }
+
 
 } # end of the class
