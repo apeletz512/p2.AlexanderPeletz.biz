@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html <?php if($user): ?>style="background: url(/libraries/img/Nebula.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;" <?php endif; ?>
+  >
 <head>
 	<title><?php if(isset($title)) echo $title; ?></title>
 
@@ -10,7 +15,7 @@
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     
 </head>
-<body>
+<body style="background-color: transparent;">
 <br>
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -34,7 +39,7 @@
 							<a href='/users/settings'>Settings</a>
 						</li>
 						<li id="logoutTab" class="pull-right">
-				    		<a href='/users/logout'>Log out</a>
+				    		<a href='/users/logout'>Logout</a>
 				    	</li>
 				  
 				   	<?php else: ?>
@@ -42,7 +47,7 @@
 				   				<a href='/users/signup'>Sign up</a>
 				        </li>
 				        <li id="loginTab" class="pull-right">
-				            	<a href='/users/login'>Log in</a>
+				            	<a href='/users/login'>Login</a>
 				        </li>
 				     <?php endif; ?>
 				</ul>
@@ -55,7 +60,7 @@
   
   <div class="row-fluid">
    	<br>
-	  <div class>
+	  <div>
 		<?php if(isset($content)) echo $content; ?>
 	  </div>
 	<br>
