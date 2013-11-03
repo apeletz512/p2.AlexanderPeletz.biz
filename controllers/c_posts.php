@@ -24,6 +24,11 @@ class posts_controller extends base_controller {
 
     public function p_add() {
 
+        # Prevent null posts
+    	if ($_POST['content'] == Null) {
+    		Router::redirect("/users/profile");
+    	}
+
         # Associate this post with this user
         $_POST['user_id']  = $this->user->user_id;
 
@@ -34,7 +39,7 @@ class posts_controller extends base_controller {
         # Insert
         # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
         DB::instance(DB_NAME)->insert('posts', $_POST);
-
+        
         #Return to profile page after making a post
         Router::redirect("/users/profile");
     }

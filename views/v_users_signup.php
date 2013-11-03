@@ -16,6 +16,13 @@
         <input type='text' name='email'>
         <br>
 
+         <?php if(isset($error)): ?>
+            <div class="alert">
+                This email address is already in use. Please enter a new email address.
+            </div>
+            <br>
+        <?php endif; ?>
+
         <label>Password</label>
         <input type='password' name='password'>
         <br><br>
@@ -24,8 +31,8 @@
           <input type="checkbox">Receive email confirmation
         </label>
         <br><br>
-        <button type="submit" id="signupBtn" class="btn btn-success">Sign Up</button>
+        <button type="submit" id="signupBtn" class="btn btn-inverse">Sign Up</button>
     </div>
-  </fieldset>
+</fieldset>
 
 </form>

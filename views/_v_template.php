@@ -27,6 +27,12 @@
 						<li id="profileTab">
 							<a href='/users/profile'>Profile</a>
 						</li> 
+						<li id="findOthersTab">
+							<a href='/posts/users'>Find Others</a>
+						</li>
+						<li id="settingsTab" class="pull-right">
+							<a href='/users/settings'>Settings</a>
+						</li>
 						<li id="logoutTab" class="pull-right">
 				    		<a href='/users/logout'>Log out</a>
 				    	</li>

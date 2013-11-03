@@ -10,10 +10,11 @@ class users_controller extends base_controller {
         echo "This is the index page";
     }
 
-    public function signup() {
+    public function signup($error = Null) {
 
         # Setup view
             $this->template->content = View::instance('v_users_signup');
+            $this->template->content->error = $error;
             $this->template->title   = "Sign Up";
 
         # Render template
@@ -22,6 +23,19 @@ class users_controller extends base_controller {
     }
 
     public function p_signup() {
+
+    # Ensure unique email
+        $q = "SELECT 
+                users.email
+            FROM users";
+        
+        $emails = DB::instance(DB_NAME)->select_rows($q);
+
+        foreach($emails as $email) {
+            if($_POST['email'] == $email['email']) {
+                Router::redirect("/users/signup/error");
+            }
+        }
 
     # More data we want stored with the user
     $_POST['created']  = Time::now();
@@ -43,10 +57,10 @@ class users_controller extends base_controller {
 
 
     public function login($error = NULL) {
-        # Setup view
-        $this->template->content = View::instance('v_users_login');
-        $this->template->content->error = $error;
-        $this->template->title   = "Login";
+    # Setup view
+    $this->template->content = View::instance('v_users_login');
+    $this->template->content->error = $error;
+    $this->template->title   = "Login";
 
     # Render template
         echo $this->template;
@@ -138,12 +152,12 @@ class users_controller extends base_controller {
             users.first_name,
             users.last_name
         FROM posts
-        INNER JOIN users_users 
+        LEFT OUTER JOIN users_users 
             ON posts.user_id = users_users.user_id_followed
-            OR posts.user_id = ".$this->user->user_id."
         INNER JOIN users 
             ON posts.user_id = users.user_id
         WHERE users_users.user_id = ".$this->user->user_id."
+        OR posts.user_id = ".$this->user->user_id."
         ORDER BY posts.created DESC";
     
     $posts = DB::instance(DB_NAME)->select_rows($q);
@@ -157,5 +171,21 @@ class users_controller extends base_controller {
     $this->template->posts->posts = $posts;
     echo $this->template; 
     }   
+
+    public function settings() {
+    # Setup view
+    $this->template->content = View::instance('v_users_settings');
+    $this->template->content->error = $error;
+    $this->template->title   = "Settings";
+
+    # Render template
+        echo $this->template;
+
+    }
+
+    public function p_settings() {
+    var_dump($_POST);
+
+    }
 
 } # end of the class
