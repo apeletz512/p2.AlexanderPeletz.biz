@@ -38,6 +38,24 @@
 			<option>America/Santiago</option>
 			<option>America/Noronha</option>
 		</select>
-		<input type="submit" id="saveBtn" class="btn btn-inverse" value="Save">
+		<br>
+		<label>Select a background:</label>
+		<select name="background">
+			
+			<?php if(isset($user->background)): ?>
+			<option value="<?=$user->background?>"><?=ucfirst(substr($user->background, 5, -4))?></option>
+			<?php endif; ?>
+
+			<option value="/img/mercury.jpg">Mercury</option>
+			<option value="/img/venus.jpg">Venus</option>
+			<option value="/img/earth.jpg">Earth</option>
+			<option value="/img/mars.jpg">Mars</option>
+			<option value="/img/jupiter.jpg">Jupiter</option>
+			<option value="/img/saturn.jpg">Saturn</option>
+			<option value="/img/uranus.jpg">Uranus</option>
+			<option value="/img/neptune.jpg">Neptune</option>
+		</select>
+		<br><br>
+		<input type="submit" id="saveBtn" class="btn btn-info" value="Save">
 	</form>
 </fieldset>

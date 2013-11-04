@@ -1,8 +1,8 @@
 
 <?php foreach($posts as $post): ?>
 
-<div class="span6 offset2" style="text-align: left; background-color: #EEE; margin-bottom: 15px;">
-	<div style="margin: 5px;">
+<div style="text-align: left; background-color: #EEE; margin-bottom: 15px;">
+	<div>
 		<article>
 		    <time>
 		        <?=Time::display($post['created'],"",$user->timezone)?>
@@ -15,4 +15,5 @@
 		</article>
 	</div>
 </div>
+
 <?php endforeach; ?>

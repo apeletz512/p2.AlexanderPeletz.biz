@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html <?php if($user): ?>style="background: url(/libraries/img/Nebula.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;" <?php endif; ?>
-  >
+<html 
+	<?php if(isset($posts)): ?>
+			style="background: url(/libraries/<?=$user->background?>) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		 	background-size: cover;" 
+	<?php elseif(isset($content)): ?>
+			style="background: url(/libraries/img/neptune.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		 	background-size: cover;" 
+
+	<?php endif; ?>
+	>
 <head>
 	<title><?php if(isset($title)) echo $title; ?></title>
 
@@ -19,7 +29,7 @@
 <br>
 <div class="container-fluid">
 	<div class="row-fluid">
-	      <!--Sidebar content-->
+	      <!--Topnav content-->
 			<div id="left-menu" class>
 				<ul class="nav nav-tabs">
 					<li id="homeTab"> <!--class="active"-->
@@ -52,28 +62,27 @@
 				     <?php endif; ?>
 				</ul>
 			</div>
-		</div>
-		<div class="span6"></div>
 	</div>
-	
 
-  
-  <div class="row-fluid">
-   	<br>
-	  <div>
-		<?php if(isset($content)) echo $content; ?>
-	  </div>
-	<br>
-	  <div>
-	  	<?php if(isset($postbox)) echo $postbox; ?>
-	  </div>
-	<br>  
-	  <div>
-	  	<?php if(isset($posts)) echo $posts; ?>
-	  </div>
-  </div>
+	<div class="row-fluid">
+		<div class="span12">
+			<?php if(isset($content)) echo $content; ?>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6 offset2">
+			<?php if(isset($postbox)) echo $postbox; ?>
+		</div>
+	 	<div class="span2 offset2">
+			<?php if(isset($stats)) echo $stats; ?>
+		</div>
+	</div>	
+	<div class="row-fluid">	
+		<div class="span6 offset2">
+			<?php if(isset($posts)) echo $posts; ?>
+		</div>
+	</div>
 </div>
-
 <!--
     <div id='menu'>
 

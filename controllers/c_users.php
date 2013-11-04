@@ -201,15 +201,19 @@ class users_controller extends base_controller {
     # Now echo out all of our views onto the profile page
     $this->template->content = View::instance('v_users_profile');
     $this->template->title = "Profile";
-    
-    $this->template->content->loginCount = $userStats['login'];
-    $this->template->content->postCount = $userStats['posts'];
-    $this->template->content->followingCount = $userStats['following'];
-    $this->template->content->followedCount = $userStats['followed'];
     $this->template->content->user_name = $user_name;
+
+    $this->template->stats = View::instance('v_users_statistics');
+    $this->template->stats->loginCount = $userStats['login'];
+    $this->template->stats->postCount = $userStats['posts'];
+    $this->template->stats->followingCount = $userStats['following'];
+    $this->template->stats->followedCount = $userStats['followed'];
+   
     $this->template->postbox = View::instance('v_posts_add');
+
     $this->template->posts = View::instance('v_posts_index');
     $this->template->posts->posts = $posts;
+    
     echo $this->template; 
 
     }   
