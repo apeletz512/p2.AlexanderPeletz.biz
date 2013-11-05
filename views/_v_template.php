@@ -105,6 +105,6 @@
 
 	</div>	
 </div>
+<script type="text/javascript" src="/js/custom.js"></script>
 </body>
-<script type="text/javascript" src="/js/custom.js" ></script>
 </html>
