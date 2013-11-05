@@ -3,6 +3,7 @@ class users_controller extends base_controller {
 
     public function __construct() {
         parent::__construct();
+
         #echo "users_controller construct called<br><br>";
     } 
 
@@ -13,8 +14,8 @@ class users_controller extends base_controller {
     public function signup($error = Null) {
 
         # Setup view
-            $this->template->content = View::instance('v_users_signup');
-            $this->template->content->error = $error;
+            $this->template->signup = View::instance('v_users_signup');
+            $this->template->signup->error = $error;
             $this->template->title   = "Sign Up";
 
         # Render template
@@ -57,21 +58,22 @@ class users_controller extends base_controller {
     }      
 
     
-    public function confirmation() {
+    public function confirmation($message = NULL) {
 
     # Show signup confirmation
-    $this->template->content = View::instance('v_users_confirmation');
+    $this->template->confirmation = View::instance('v_users_confirmation');
     $this->template->title = "Confirmation";
-
+    
     echo $this->template;
 
     }
 
 
     public function login($error = NULL) {
+    
     # Setup view
-    $this->template->content = View::instance('v_users_login');
-    $this->template->content->error = $error;
+    $this->template->login = View::instance('v_users_login');
+    $this->template->login->error = $error;
     $this->template->title   = "Login";
 
     # Render template
@@ -157,15 +159,15 @@ class users_controller extends base_controller {
 
     public function profile($user_name = NULL) {
 
-    # If user is blank, they're not logged in; redirect them to the login page
-    if(!$this->user) {
-        Router::redirect("/users/login");
-    }
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
 
-    # If they weren't redirected away, continue...
-    
+
     # Get all of the current user's posts from the database
     $q = "SELECT 
+            distinct(posts.post_id),
             posts.content,
             posts.created,
             posts.user_id AS post_user_id,
@@ -174,7 +176,7 @@ class users_controller extends base_controller {
             users.last_name
         FROM posts
         LEFT OUTER JOIN users_users 
-            ON posts.user_id = users_users.user_id_followed
+            ON posts.user_id = users_users.user_id_followed and users_users.user_id = ".$this->user->user_id."
         INNER JOIN users 
             ON posts.user_id = users.user_id
         WHERE users_users.user_id = ".$this->user->user_id."
@@ -211,9 +213,9 @@ class users_controller extends base_controller {
     
 
     # Now echo out all of our views onto the profile page
-    $this->template->content = View::instance('v_users_profile');
+    $this->template->profile = View::instance('v_users_profile');
     $this->template->title = "Profile";
-    $this->template->content->user_name = $user_name;
+    $this->template->profile->user_name = $user_name;
 
     $this->template->stats = View::instance('v_users_statistics');
     $this->template->stats->loginCount = $userStats['login'];
@@ -231,8 +233,14 @@ class users_controller extends base_controller {
     }   
 
     public function settings() {
+
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
+
     # Setup view
-    $this->template->content = View::instance('v_users_settings');
+    $this->template->settings = View::instance('v_users_settings');
     $this->template->title   = "Settings";
 
     # Render template
@@ -242,6 +250,11 @@ class users_controller extends base_controller {
 
     public function p_settings() {
     
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
+
     $user_timezone = DB::instance(DB_NAME)->update("users", $_POST, "WHERE user_id = '".$this->user->user_id."'");
 
     # After saving settings, return to profile page

@@ -5,23 +5,8 @@ class posts_controller extends base_controller {
 	public function __construct() {
         parent::__construct();
         
-        # If user is blank, they're not logged in; redirect them to the login page
-    	if(!$this->user) {
-        	Router::redirect("/users/login");
-    	}
      }
 	
-    public function add() {
-
-        # Setup view
-            $this->template->content = View::instance('v_posts_add');
-            $this->template->title   = "Make A Post";
-
-        # Render template
-            echo $this->template;
-
-    }
-
     public function p_add() {
 
         # Prevent null posts
@@ -45,49 +30,20 @@ class posts_controller extends base_controller {
     }
 
 
-	public function index() {
-
-    # Set up the View
-    $this->template->content = View::instance('v_posts_index');
-    $this->template->title   = "All Posts";
-
-    # Query
-    $q = "SELECT 
-            posts.content,
-            posts.created,
-            posts.user_id AS post_user_id,
-            users_users.user_id AS follower_id,
-            users.first_name,
-            users.last_name
-        FROM posts
-        INNER JOIN users_users 
-            ON posts.user_id = users_users.user_id_followed
-        INNER JOIN users 
-            ON posts.user_id = users.user_id
-        WHERE users_users.user_id = ".$this->user->user_id."
-        OR posts.user_id = ".$this->user->user_id."
-        ORDER BY posts.created DESC";
-
-    # Run the query, store the results in the variable $posts
-    $posts = DB::instance(DB_NAME)->select_rows($q);
-
-    # Pass data to the View
-    $this->template->content->posts = $posts;
-
-    # Render the View
-    echo $this->template;
-
-}
-
 public function users() {
+	    # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
 
     # Set up the View
-    $this->template->content = View::instance("v_posts_users");
+    $this->template->others = View::instance("v_posts_users");
     $this->template->title   = "Users";
 
     # Build the query to get all the users
     $q = "SELECT *
-        FROM users";
+        FROM users
+        WHERE users.user_id != '".$this->user->user_id."'";
 
     # Execute the query to get all the users. 
     # Store the result array in the variable $users
@@ -106,14 +62,24 @@ public function users() {
     $connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
 
     # Pass data (users and connections) to the view
-    $this->template->content->users       = $users;
-    $this->template->content->connections = $connections;
+    $this->template->others->users       = $users;
+    $this->template->others->connections = $connections;
 
     # Render the view
     echo $this->template;
 	}
 
 public function follow($user_id_followed) {
+
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
+
+        elseif($user_id_followed == $this->user->user_id) {
+        	Router::redirect("/posts/users");
+        }
+        
 
     # Prepare the data array to be inserted
     $data = Array(
@@ -131,6 +97,15 @@ public function follow($user_id_followed) {
 	}
 
 public function unfollow($user_id_followed) {
+
+        # If user is blank, they're not logged in; redirect them to the login page
+        if(!$this->user) {
+            Router::redirect("/users/login");
+        }
+        elseif(!$user_id_followed) {
+        	Router::redirect("/posts/users") ;
+        }
+
 
     # Delete this connection
     $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND user_id_followed = '.$user_id_followed;

@@ -1,19 +1,20 @@
 
 <?php foreach($posts as $post): ?>
 
-<div style="text-align: left; background-color: #EEE; margin-bottom: 15px;">
-	<div>
+<div class="post">
 		<article>
-		    <time>
-		        <?=Time::display($post['created'],"",$user->timezone)?>
-		    </time>
-		    <h4><?=$post['first_name']?> <?=$post['last_name']?> posted:</h4>
-
-		    <div style="margin: 5px; background-color: grey;">
+		    <div>
+			    <time>
+			        <?=Time::display($post['created'],"",$user->timezone)?>
+			    </time>
+		    </div>
+		    <div>
+		    	<h4><?=$post['first_name']?> <?=$post['last_name']?> posted:</h4>
+		    </div>
+		    <div class="post-inner">
 		    	<h2><?=$post['content']?></h2>
 			</div>
 		</article>
-	</div>
 </div>
 
 <?php endforeach; ?>

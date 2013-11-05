@@ -6,13 +6,30 @@
 			-moz-background-size: cover;
 			-o-background-size: cover;
 		 	background-size: cover;" 
-	<?php elseif(isset($content)): ?>
-			style="background: url(/libraries/img/neptune.jpg) no-repeat center center fixed; 
+	<?php elseif((isset($content)) or (isset($login))): ?>
+			style="background: url(/libraries/img/nebula.jpg) no-repeat center center fixed; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
 		 	background-size: cover;" 
-
+	<?php elseif(isset($settings)): ?>
+			style="background: url(/libraries/img/moon.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		 	background-size: cover;"
+	<?php elseif(isset($others)): ?>
+			style="background: url(/libraries/img/light_gas.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		 	background-size: cover;"  	
+	<?php elseif((isset($signup)) or (isset($confirmation))): ?>
+			style="background: url(/libraries/img/sun.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+		 	background-size: cover;" 
 	<?php endif; ?>
 	>
 <head>
@@ -23,9 +40,10 @@
 	<!-- Controller Specific JS/CSS -->
 	<!--<?php #if(isset($client_files_head)) echo $client_files_head; ?>-->
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/css/custom.css" type="text/css">
     
 </head>
-<body style="background-color: transparent;">
+<body>
 <br>
 <div class="container-fluid">
 	<div class="row-fluid">
@@ -67,49 +85,29 @@
 	<div class="row-fluid">
 		<div class="span12">
 			<?php if(isset($content)) echo $content; ?>
+			<?php if(isset($profile)) echo $profile; ?>
+			<?php if(isset($confirmation)) echo $confirmation; ?>
+			<?php if(isset($settings)) echo $settings; ?>
+			<?php if(isset($others)) echo $others; ?>
+			<?php if(isset($signup)) echo $signup; ?>
+			<?php if(isset($login)) echo $login; ?>
 		</div>
 	</div>
 	<div class="row-fluid">
-		<div class="span6 offset2">
-			<?php if(isset($postbox)) echo $postbox; ?>
-		</div>
-	 	<div class="span2 offset2">
-			<?php if(isset($stats)) echo $stats; ?>
-		</div>
-	</div>	
-	<div class="row-fluid">	
-		<div class="span6 offset2">
+		<div class="span3">
+			<div>
+				<?php if(isset($postbox)) echo $postbox; ?>
+			</div>
+			<div>
+				<?php if(isset($stats)) echo $stats; ?>
+			</div>
+	 	</div>
+	 	<div class="span9">
 			<?php if(isset($posts)) echo $posts; ?>
 		</div>
-	</div>
+
+	</div>	
 </div>
-<!--
-    <div id='menu'>
-
-        <ul class="nav">
-
-
-        <a href='/'>Home</a>
-
-        Menu for users who are logged in
-        <?php #if($user): ?>
-
-            <a href='/users/logout'>Logout</a>
-            <a href='/users/profile'>Profile</a>
-
-         Menu options for users who are not logged in
-        <?php #else: ?>
-
-            <a href='/users/signup'>Sign up</a>
-            <a href='/users/login'>Log in</a>
-
-        <?php #endif; ?>
-
-    </div>
-    <br>
-
-	<?php #if(isset($content)) echo $content; ?>
-	-->
 </body>
 <script type="text/javascript" src="/js/custom.js"></script>
 </html>
