@@ -36,9 +36,6 @@
 	<title><?php if(isset($title)) echo $title; ?></title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
-					
-	<!-- Controller Specific JS/CSS -->
-	<!--<?php #if(isset($client_files_head)) echo $client_files_head; ?>-->
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
 	<link rel="stylesheet" href="/css/custom.css" type="text/css">
     
@@ -109,5 +106,5 @@
 	</div>	
 </div>
 </body>
-<script type="text/javascript" src="/js/custom.js"></script>
+<script type="text/javascript" src="/js/custom.js" ></script>
 </html>
