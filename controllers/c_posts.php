@@ -56,7 +56,7 @@ public function users() {
         WHERE user_id = ".$this->user->user_id;
 
     # Execute this query with the select_array method
-    # select_array will return our results in an array and use the "users_id_followed" field as the index.
+    # select_array will return our results in an array and use the "user_id_followed" field as the index.
     # This will come in handy when we get to the view
     # Store our results (an array) in the variable $connections
     $connections = DB::instance(DB_NAME)->select_array($q, 'user_id_followed');
@@ -108,6 +108,8 @@ public function unfollow($user_id_followed) {
 
 
     # Delete this connection
+    $user_id_followed = DB::instance(DB_NAME)->sanitize($user_id_followed);
+
     $where_condition = 'WHERE user_id = '.$this->user->user_id.' AND user_id_followed = '.$user_id_followed;
     DB::instance(DB_NAME)->delete('users_users', $where_condition);
 

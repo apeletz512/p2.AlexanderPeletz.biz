@@ -7,10 +7,6 @@ class users_controller extends base_controller {
         #echo "users_controller construct called<br><br>";
     } 
 
-    public function index() {
-        echo "This is the index page";
-    }
-
     public function signup($error = Null) {
 
         # Setup view
@@ -34,9 +30,18 @@ class users_controller extends base_controller {
 
         foreach($emails as $email) {
             if($_POST['email'] == $email['email']) {
-                Router::redirect("/users/signup/error");
+                Router::redirect("/users/signup/1");
             }
         }
+
+    # Ensure all fields are populated
+        foreach($_POST as $posts => $value) {
+            if($value == Null) {
+                Router::redirect("/users/signup/2");
+            }
+        }
+
+
 
     # More data we want stored with the user
     $_POST['created']  = Time::now();
@@ -119,7 +124,6 @@ class users_controller extends base_controller {
         */
         setcookie("token", $token, strtotime('+1 year'), '/');
 
-        # Send them to the main page - or whever you want them to go
         
         $q = "SELECT user_id 
         FROM users 
@@ -130,6 +134,9 @@ class users_controller extends base_controller {
         $login_data['user_id'] = $userID;
         $login_data['logged_in'] = Time::now();
         $logged_in = DB::instance(DB_NAME)->insert("users_login", $login_data);
+
+        
+        # Reroute to profile page after signing in
 
         Router::redirect("/users/profile");
 
@@ -185,6 +192,7 @@ class users_controller extends base_controller {
     
     $posts = DB::instance(DB_NAME)->select_rows($q);
 
+    # Get all the user statistics from our tables
 
     $q = "SELECT login.user_id user_id, IFNULL(COUNT( logged_in ),0) login, IFNULL(posts,0) posts, IFNULL(following,0) following, IFNULL(followed,0) followed
             FROM users_login login
@@ -212,7 +220,9 @@ class users_controller extends base_controller {
     $userStats = DB::instance(DB_NAME)->select_row($q);
     
 
-    # Now echo out all of our views onto the profile page
+    # Now echo out all of our views onto the profile page and pass in relevant data
+    # Since we built it piece-meal, pass it in piece-meal and the template will handle layout
+    
     $this->template->profile = View::instance('v_users_profile');
     $this->template->title = "Profile";
     $this->template->profile->user_name = $user_name;

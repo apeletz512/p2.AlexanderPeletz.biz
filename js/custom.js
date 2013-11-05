@@ -33,6 +33,14 @@ function activateTab() {
 		currentTab = document.getElementById("profileTab");
 		currentTab.setAttribute("class", "active");
 	}
+	else if (document.getElementById("settings")) {
+		currentTab = document.getElementById("settingsTab");
+		currentTab.setAttribute("class", "active");
+	}
+	else if (document.getElementById("others")) {
+		currentTab = document.getElementById("findOthersTab");
+		currentTab.setAttribute("class", "active");
+	}
 /*
 	if ((currentTab.id == "logoutTab") || (currentTab.id = "loginTab")) {
 		currentTab.setAttribute("class","active pull-right");

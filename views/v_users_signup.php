@@ -18,18 +18,19 @@
                         <label>Email Address</label>
                         <input type='text' name='email'>
                         <br>
-
-                         <?php if(isset($error)): ?>
-                            <div class="alert">
-                                This email address is already in use. Please enter a new email address.
-                            </div>
-                            <br>
-                        <?php endif; ?>
-
                         <label>Password</label>
                         <input type='password' name='password'>
-
-                        <br><br>
+                        <br>
+                        <br>
+                        <?php if($error==1): ?>
+                            <div class="alert">
+                                The email address you've entered is already in use. Please enter a new email address.
+                            </div>
+                        <?php elseif($error==2): ?>
+                            <div class="alert">
+                                Please fill out every field.
+                            </div>
+                        <?php endif; ?>
                         <button type="submit" id="signupBtn" class="btn btn-info">Sign Up</button>
                     </div>
                 </fieldset>
