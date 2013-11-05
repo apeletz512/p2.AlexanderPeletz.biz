@@ -50,8 +50,20 @@ class users_controller extends base_controller {
     # Insert this user into the database 
     $user_id = DB::instance(DB_NAME)->insert("users", $_POST);
 
-    # For now, just confirm they've signed up - 
-    # You should eventually make a proper View for this
+    # Route to confirmation page
+
+    Router::redirect("/users/confirmation");
+
+    }      
+
+    
+    public function confirmation() {
+
+    # Show signup confirmation
+    $this->template->content = View::instance('v_users_confirmation');
+    $this->template->title = "Confirmation";
+
+    echo $this->template;
 
     }
 
